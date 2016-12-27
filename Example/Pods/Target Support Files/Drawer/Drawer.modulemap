@@ -1,0 +1,6 @@
+framework module Drawer {
+  umbrella header "Drawer-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,22 @@
+PODS:
+  - Drawer (0.1.0)
+  - Nimble (5.1.1)
+  - Quick (1.0.0)
+
+DEPENDENCIES:
+  - Drawer (from `../`)
+  - Nimble (~> 5.1.1)
+  - Quick (~> 1.0.0)
+
+EXTERNAL SOURCES:
+  Drawer:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Drawer: 30af0299e2843f6c3217521fdcb8f42d338fea6a
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+
+PODFILE CHECKSUM: 61b147f996ef8306fdb74fd9b81530a75ed0053f
+
+COCOAPODS: 1.2.0.beta.1
