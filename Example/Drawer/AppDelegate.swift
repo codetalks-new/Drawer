@@ -26,23 +26,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
        let window = UIWindow(frame: UIScreen.main.bounds)
       let frontController = makeController(backgroundColor: .orange)
+      frontController.title = "Drawer Demo"
       let showLeftButton = UIButton(type: .system)
-      showLeftButton.setTitle("Show Left Drawer", for: .normal)
-      showLeftButton.frame = CGRect(x: 15, y: 64, width: 120, height: 36)
+      showLeftButton.setTitle("打开左边抽屉", for: .normal)
+      showLeftButton.frame = CGRect(x: 15, y: 94, width: 120, height: 36)
       showLeftButton.addTarget(self, action: #selector(showLeftDrawer), for: .touchUpInside)
       frontController.view.addSubview(showLeftButton)
       
       
       let showRightButton = UIButton(type: .system)
-      showRightButton.setTitle("Show Right Drawer", for: .normal)
+      showRightButton.setTitle("打开右边抽屉", for: .normal)
       showRightButton.frame = CGRect(x: 15, y: 164, width: 120, height: 36)
       showRightButton.addTarget(self, action: #selector(showRightDrawer), for: .touchUpInside)
       frontController.view.addSubview(showRightButton)
       
       let frontNavController = UINavigationController(rootViewController: frontController)
       
-      let leftVC = makeController(backgroundColor: .red)
-      let rightVC = makeController(backgroundColor: .purple)
+      let leftVC =  MenuListController(menus:  ["相册","收藏","钱包", "卡包", "表情", "设置", "要问我会为什么这么伤心,原来是因为你不在我身边?"])
+      let rightVC = MenuListController(menus: [
+        "发起多人聊天","加好友","扫一扫","面对面快传","付款","你没有想过的事情,是因为你不敢去想还是因为?"
+        ])
       let drawerController = DrawerController(frontVC: frontNavController, leftVC: leftVC, rightVC: rightVC)
       window.rootViewController = drawerController
       self.window = window

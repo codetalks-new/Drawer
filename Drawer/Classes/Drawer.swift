@@ -50,8 +50,6 @@ final public class DrawerController: UIViewController{
     }
     
     super.init(nibName: nil, bundle: nil)
-    leftVC?.drawerController = self
-    rightVC?.drawerController = self
   }
   
   func  containerView(ofPosition position: DrawerPosition) -> DrawerControllerView{
@@ -76,7 +74,6 @@ final public class DrawerController: UIViewController{
     addChildViewController(childController)
     childController.view.frame = container.bounds
     childController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    childController.drawerController = self
     
     container.addSubview(childController.view)
     
@@ -93,7 +90,6 @@ final public class DrawerController: UIViewController{
       childController.willMove(toParentViewController: nil)
       childController.view.removeFromSuperview()
       childController.removeFromParentViewController()
-      childController.drawerController = nil
     }
   }
   
@@ -167,6 +163,10 @@ final public class DrawerController: UIViewController{
   
   public func showRightDrawer(){
     showDrawer(atPosition: .right)
+  }
+  
+  public func showFront(){
+    transition(toState: .front)
   }
   
   public func showDrawer(atPosition position: DrawerPosition){
@@ -312,4 +312,17 @@ final public class DrawerController: UIViewController{
   
   
   
+}
+
+extension UIViewController{
+  public var drawerController: DrawerController?{
+    var vc: UIViewController? = self
+    while vc != nil {
+      if let drawerVC = vc as? DrawerController{
+        return drawerVC
+      }
+      vc = vc?.parent
+    }
+    return nil
+  }
 }
