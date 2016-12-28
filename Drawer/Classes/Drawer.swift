@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public enum ShowingState:Int{
   case leftInPresentationMode, left,front,right,rightInPresentation
