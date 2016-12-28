@@ -20,6 +20,10 @@ it, simply add the following line to your Podfile:
 pod "Drawer"
 ```
 
+## Usage
+
+See Demo
+
 ## Author
 
 banxi1988, banxi1988@gmail.com
