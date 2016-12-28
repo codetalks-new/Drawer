@@ -142,8 +142,6 @@ final public class DrawerController: UIViewController{
       controller = viewController(atPosition: .right)
     case .front:
       controller = frontViewController
-    default:
-      break
     }
     return controller?.preferredStatusBarStyle ?? .default
   }
@@ -170,8 +168,9 @@ final public class DrawerController: UIViewController{
   }
   
   public func showDrawer(atPosition position: DrawerPosition){
-    guard let controller = viewController(atPosition: position) else{
+    if viewController(atPosition: position) == nil{
       fatalError("NO Controller at posistion \(position)")
+      return
     }
     switch position {
     case .left:
